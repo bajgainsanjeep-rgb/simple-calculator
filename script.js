@@ -1,23 +1,26 @@
-const digits=document.querySelectorAll("#digit");
-const result=document.querySelector(".amount");
-const operators=document.querySelectorAll("#operator");
-const clear=document.querySelector("#clear");
+const digits = document.querySelectorAll("#digit");
+const result = document.querySelector(".amount");
 
-digits.forEach((digit)=>{
-    
-    digit.addEventListener("click",()=>{
-      const digitvalues=digit.getAttribute("value"); 
-      result.innerText= digitvalues;
-      
-     
-       
-    
-    })
-})
-operators.forEach((operator)=>{
-    operator.addEventListener("click",()=>{
-        const operatorvalue=operator.getAttribute("value");
-      
+const clear = document.querySelector("#clear");
+const input = document.querySelector("#input");
+let string = "";
+Array.from(digits).forEach((digit) => {
+    digit.addEventListener("click", (e) => {
+        if (e.target.innerHTML == "=") {
+            string = eval(string);
+            input.value = string;
+        }
+
+        else if (e.target.innerHTML == "AC") {
+            string = "";
+            input.value = string;
+        }
+        else {
+
+            string = string + e.target.innerHTML;
+            input.value = string;
+        }
+
     })
 })
 
