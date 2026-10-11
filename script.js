@@ -1,7 +1,7 @@
 const digits = document.querySelectorAll("#digit");
-const result = document.querySelector(".amount");
 
-const clear = document.querySelector("#clear");
+
+
 const input = document.querySelector("#input");
 let string = "";
 Array.from(digits).forEach((digit) => {
